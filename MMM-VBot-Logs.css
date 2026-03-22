@@ -35,12 +35,16 @@
 /* ===== LOG LINE ===== */
 .MMM-VBot-Logs .vbot-log-line {
     padding: 2px 4px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     border-radius: 3px;
     white-space: pre-wrap;
     word-break: break-word;
     overflow-wrap: anywhere;
-	text-align: left;  
+    text-align: left;  
+
+    /* Thụt lề cho dòng wrap */
+    padding-left: 14px;    /* khoảng cách từ lề trái */
+    text-indent: -14px;     /* dấu '-' sát lề */
 }
 
 /* ===== COLORS ===== */
