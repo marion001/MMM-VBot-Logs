@@ -96,6 +96,7 @@ Module.register("MMM-VBot-Logs", {
 			this.addLog('🔌 Mất kết nối (code: ' + event.code + ') - đang thử kết nối lại...', 'warn');
 
 			setTimeout(() => {
+				this.isReconnecting = false;
 				this.addLog('🔄 Đang kết nối lại (lần ' + this.reconnectCount + ')...', 'wait');
 				this.connect();
 			}, this.config.reconnectInterval * 1000);
