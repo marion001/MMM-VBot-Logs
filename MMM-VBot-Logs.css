@@ -1,0 +1,83 @@
+/* ===== CONTAINER ===== */
+.MMM-VBot-Logs {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    /* border: 1px solid rgba(255,255,255,0.08); */
+    color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.vbot-log-header {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-align: center;
+    color: #00e5ff;
+    text-shadow: 0 0 5px rgba(0,229,255,0.6);
+}
+
+/* ===== CONTAINER LOG ===== */
+.vbot-log-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ===== LOG LINE ===== */
+.MMM-VBot-Logs .vbot-log-line {
+    padding: 2px 4px;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* ===== COLORS ===== */
+.vbot-log-info {
+    color: #eaeaea;
+}
+
+.vbot-log-wait {
+    color: #ffd54f;
+    font-weight: bold;
+}
+
+.vbot-log-woke {
+    color: #00ff9c;
+    font-weight: bold;
+}
+
+.vbot-log-playing {
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+.vbot-log-error {
+    color: #ff5252;
+    font-weight: bold;
+}
+
+/* ===== FADE DÒNG CŨ ===== */
+.MMM-VBot-Logs .vbot-log-line:nth-child(1) { opacity: 0.4; }
+.MMM-VBot-Logs .vbot-log-line:nth-child(2) { opacity: 0.55; }
+.MMM-VBot-Logs .vbot-log-line:nth-child(3) { opacity: 0.7; }
+
+/* ===== SCROLLBAR ===== */
+.MMM-VBot-Logs::-webkit-scrollbar {
+    width: 4px;
+}
+
+.MMM-VBot-Logs::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
