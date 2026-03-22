@@ -1,6 +1,6 @@
 # MMM-VBot-Logs
 
-Module **MagicMirror²** hiển thị log realtime từ VBot thông qua WebSocket.
+Module **MagicMirror²** hiển thị log realtime từ **VBot** thông qua WebSocket, sử dụng **tính năng Dev Logs (Dev_Logs.py) của VBot** để theo dõi hoạt động hệ thống trực tiếp trên màn hình.
 
 <img src="https://img.shields.io/badge/MagicMirror-Module-blue" />
 <img src="https://img.shields.io/badge/WebSocket-Realtime-green" />
@@ -9,15 +9,16 @@ Module **MagicMirror²** hiển thị log realtime từ VBot thông qua WebSocke
 
 ## 📌 Tính năng
 
-* 📡 Nhận log realtime từ WebSocket server
+* 📡 Nhận log realtime từ **Dev Logs của VBot**
 * 🔄 Tự động reconnect khi mất kết nối
 * 🎨 Highlight log theo từ khóa (không cần type)
 * ✂️ Tùy chọn cắt dòng (wrapText) hoặc dùng CSS
 * 📜 Giới hạn số dòng log (tránh lag)
 * ⬇️ Tự động scroll xuống dòng mới nhất
-* 🧠 Chỉ cần nhận dữ liệu đơn giản từ server
+* 🧠 Server chỉ cần gửi dữ liệu đơn giản
 
 ---
+
 
 ## 🖼️ Demo
 
