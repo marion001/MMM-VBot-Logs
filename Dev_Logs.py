@@ -59,7 +59,7 @@ def send_log(msg: str):
     if not clients:
         return
     if ws_loop.is_running():
-        payload = _json_dumps({"text": msg})
+        payload = _json_dumps({"text": f"- {msg}"})
         Lib.asyncio.run_coroutine_threadsafe(broadcast(payload), ws_loop)
 
 #Giữ nguyên hàm def logs_dev(logs_text)
