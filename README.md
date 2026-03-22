@@ -147,4 +147,4 @@ MIT
 
 ## 👨‍💻 Author
 
-VBot Assistant
+VBot Assistant, Vũ Tuyển
