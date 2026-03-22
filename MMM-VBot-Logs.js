@@ -9,7 +9,7 @@ Module.register("MMM-VBot-Logs", {
     defaults: {
         wsAddress: "ws://localhost:8765",			//địa chỉ Socket Server máy Chủ VBot
         maxLines: 20,								//Số lượng dòng logs tối đa cần hiển thị
-        reconnectInterval: 5,						//thời gian kết nối lại khi mất kết nối (giây)
+        reconnectInterval: 10,						//thời gian kết nối lại khi mất kết nối (giây)
 		baseLength: 50,								//số lượng từ cho phép để cắt chuỗi
 		tolerance: 12,								//dung sai số lượng từ cho phép cắt chuỗi
 		useWrapText: false,							//true sẽ thực hiện cắt chuỗi dài ở cả code, false tự động cắt chuỗi ở css
