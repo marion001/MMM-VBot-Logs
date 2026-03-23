@@ -1,4 +1,4 @@
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 .MMM-VBot-Logs {
     font-family: "JetBrains Mono", "Courier New", monospace;
     font-size: 14px;
@@ -15,7 +15,7 @@
     flex-direction: column;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .vbot-log-header {
     font-size: 15px;
     font-weight: bold;
@@ -25,14 +25,14 @@
     text-shadow: 0 0 5px rgba(0,229,255,0.6);
 }
 
-/* ===== CONTAINER LOG ===== */
+/* CONTAINER LOG */
 .vbot-log-container {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-/* ===== LOG LINE ===== */
+/* LOG LINE */
 .MMM-VBot-Logs .vbot-log-line {
     padding: 2px 4px;
     margin-bottom: 1px;
@@ -47,37 +47,12 @@
     text-indent: -14px;     /* dấu '-' sát lề */
 }
 
-/* ===== COLORS ===== */
-.vbot-log-info {
-    color: #eaeaea;
-}
-
-.vbot-log-wait {
-    color: #ffd54f;
-    font-weight: bold;
-}
-
-.vbot-log-woke {
-    color: #00ff9c;
-    font-weight: bold;
-}
-
-.vbot-log-playing {
-    color: #00e5ff;
-    font-weight: bold;
-}
-
-.vbot-log-error {
-    color: #ff5252;
-    font-weight: bold;
-}
-
-/* ===== FADE DÒNG CŨ ===== */
+/* FADE DÒNG CŨ */
 .MMM-VBot-Logs .vbot-log-line:nth-child(1) { opacity: 0.4; }
 .MMM-VBot-Logs .vbot-log-line:nth-child(2) { opacity: 0.55; }
 .MMM-VBot-Logs .vbot-log-line:nth-child(3) { opacity: 0.7; }
 
-/* ===== SCROLLBAR ===== */
+/* SCROLLBAR */
 .MMM-VBot-Logs::-webkit-scrollbar {
     width: 4px;
 }
@@ -86,3 +61,41 @@
     background: rgba(255,255,255,0.2);
     border-radius: 4px;
 }
+
+/* Vị trí đặt logo, icon, ảnh động */
+.vbot-log-image {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+	position: absolute;
+	z-index: 999; /* nổi trên tất cả */
+
+	/*
+	position: fixed !important;
+	top: 96% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	*/
+}
+
+/* Kích thước Logo, icon, ảnh động */
+.vbot-log-image img {
+    max-width: 120px;
+    height: 120px;
+}
+
+/* ===== COLORS ===== */
+.vbot-log-info {color: #FFFFFF; font-weight: bold;}
+.vbot-log-wait {color: #ffd54f; font-weight: bold;}
+.vbot-log-wake {color: #00ff9c; font-weight: bold;}
+.vbot-log-playing {color: #00e5ff; font-weight: bold;}
+.vbot-log-human {color: #00FF00; font-weight: bold;}
+.vbot-log-bot {color: #1E90FF; font-weight: bold;}
+.vbot-log-norec {color: #ADFF2F; font-weight: bold;}
+.vbot-log-rec {color: #FF00FF; font-weight: bold;}
+.vbot-log-mode {color: #00FFFF; font-weight: bold;}
+.vbot-log-timkiem {color: #FFA500; font-weight: bold;}
+.vbot-log-phathien {color: #FF00FF; font-weight: bold;}
+.vbot-log-playlist {color: #FFFF00; font-weight: bold;}
+.vbot-log-error {color: #ff5252; font-weight: bold;}
+.vbot-log-system {color: #FF0000; font-weight: bold;}
