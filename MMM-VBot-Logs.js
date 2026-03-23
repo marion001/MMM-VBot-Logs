@@ -22,17 +22,18 @@ Module.register("MMM-VBot-Logs", {
 			{keyword: "đã được đánh thức", className: "vbot-log-wake"},
 			{keyword: "thu âm", className: "vbot-log-rec"},
 			{keyword: "human", className: "vbot-log-human"},
+			{keyword: "[bot system]", className: "vbot-log-system"},
 			{keyword: "bot", className: "vbot-log-bot"},
 			{keyword: "khởi chạy", className: "vbot-log-mode"},
 			{keyword: "tìm kiếm", className: "vbot-log-timkiem"},
 			{keyword: "không có giọng nói", className: "vbot-log-norec"},
 			{keyword: "phát hiện", className: "vbot-log-phathien"},
-			{keyword: "system", className: "vbot-log-system"},
 			{keyword: "đang phát", className: "vbot-log-playing"}
         ],
 		//cấu hình ảnh động, icon, hoạt ảnh theo text trả về từ máy chủ VBot
 		imageKeywords: [
 			{keyword: "Đã được đánh thức", image: "wake.webp"},
+			{keyword: "Đang thu âm", image: "wake.webp"},
 			{keyword: "[HUMAN]:", image: "loading.webp"},
 			{keyword: "[BOT]:", image: "speak.webp"},
 			{keyword: "[VBot XiaoZhi BOT]:", image: "speak.webp"},
@@ -42,6 +43,7 @@ Module.register("MMM-VBot-Logs", {
 			{keyword: "Đã tạm dừng:", image: ""},
 			{keyword: "Đã dừng phát", image: ""},
 			{keyword: "Không có giọng nói", image: ""},
+			{keyword: "chờ được đánh thức", image: ""},
 			{keyword: "Đã phát xong:", image: ""}
 		]
     },
@@ -250,7 +252,8 @@ Module.register("MMM-VBot-Logs", {
 								//không có ảnh → ẩn div
 								this.hideIcon();
 							}
-							break; // chỉ 1 keyword ảnh mỗi log
+							//chỉ 1 keyword ảnh mỗi log
+							break;
 						}
 					}
 				}
