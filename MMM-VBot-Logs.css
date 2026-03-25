@@ -65,23 +65,54 @@
 /* Vị trí đặt logo, icon, ảnh động */
 .vbot-log-image {
     width: 100%;
-    text-align: center;
-    margin-top: 5px;
-	position: absolute;
-	z-index: 999; /* nổi trên tất cả */
+    height: 120px;             
+    position: absolute;
+    top: 0;
+    left: 0;
 
-	/*
-	position: fixed !important;
-	top: 96% !important;
-	left: 50% !important;
-	transform: translate(-50%, -50%) !important;
-	*/
+    display: flex;             
+    justify-content: center;  
+    align-items: center;     
+
+    z-index: 999;
 }
 
 /* Kích thước Logo, icon, ảnh động */
 .vbot-log-image img {
     max-width: 120px;
     height: 120px;
+}
+
+
+
+.vbot-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    gap: 5px;
+	    width: 120px;   /* ⬅️ match icon */
+}
+
+.vbot-wave span {
+    display: block;
+    width: 5px;
+    height: 20px;
+    background: #00ffff;
+    border-radius: 3px;
+    animation: vbot-wave-anim 1s infinite ease-in-out;
+}
+
+/* animation */
+@keyframes vbot-wave-anim {
+    0%, 100% {
+        height: 20px;
+        opacity: 0.5;
+    }
+    50% {
+        height: 70px;
+        opacity: 1;
+    }
 }
 
 /* ===== COLORS ===== */
@@ -99,3 +130,35 @@
 .vbot-log-playlist {color: #FFFF00; font-weight: bold;}
 .vbot-log-error {color: #ff5252; font-weight: bold;}
 .vbot-log-system {color: #FF0000; font-weight: bold;}
+
+.vbot-music-wave {
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+}
+
+.vbot-music-wave span {
+    width: 7px;
+    background: linear-gradient(to top, #00ffa6, #00d4ff, #7f7fff);
+    border-radius: 3px;
+    animation: musicBounce 0.8s infinite ease-in-out;
+}
+
+@keyframes musicBounce {
+    0%, 100% {
+        height: 15px;
+        opacity: 0.5;
+    }
+    25% {
+        height: 60px;
+    }
+    50% {
+        height: 30px;
+        opacity: 1;
+    }
+    75% {
+        height: 80px;
+    }
+}

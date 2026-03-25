@@ -15,6 +15,7 @@ Module.register("MMM-VBot-Logs", {
 		useWrapText: false,							//true sẽ thực hiện cắt chuỗi dài ở cả code, false tự động cắt chuỗi ở css
 		useIcons: true,								//true = dùng hiển thị icon ảnh, false = không hiển thị icon ảnh
 		display_icon_running: true,					//Hiển thị icon VBot khi bật hiển thị ảnh
+		numberOfBarsMusicWave: 35,					//Số Thanh Bars Music
 		titleHeader: "Logs VBot MagicMirror",		//tiêu đề thiết bị kết nối Logs
 		//Cấu hình đổi màu Logs textx trả về để hiển thị theo class css
         highlightKeywords: [
@@ -32,12 +33,12 @@ Module.register("MMM-VBot-Logs", {
         ],
 		//cấu hình ảnh động, icon, hoạt ảnh theo text trả về từ máy chủ VBot
 		imageKeywords: [
-			{keyword: "Đã được đánh thức", image: "wake.webp"},
-			{keyword: "Đang thu âm", image: "wake.webp"},
+			{keyword: "Đã được đánh thức", image: "wake_code"},
+			{keyword: "Đang thu âm", image: "wake_code"},
 			{keyword: "[HUMAN]:", image: "loading.webp"},
 			{keyword: "[BOT]:", image: "speak.webp"},
 			{keyword: "[VBot XiaoZhi BOT]:", image: "speak.webp"},
-			{keyword: "Đang phát:", image: "music_dance.webp"},
+			{keyword: "Đang phát:", image: "music_wave"},
 			{keyword: "Đã tắt Mic", image: "mic_off.webp"},
 			{keyword: "Đã bật Mic", image: ""},
 			{keyword: "Đã tạm dừng:", image: ""},
@@ -60,10 +61,6 @@ Module.register("MMM-VBot-Logs", {
 			this.imageDiv = document.createElement("div");
 			this.imageDiv.id = "vbot-image";
 			this.imageDiv.classList.add("vbot-log-image");
-			//this.imageDiv.style.position = "absolute";
-			//this.imageDiv.style.top = "10px";
-			//this.imageDiv.style.left = "10px";
-			//this.imageDiv.style.zIndex = "999";
 			if (this.config.display_icon_running){
 				//Hiển thị ảnh mặc định ngay khi tạo div
 				const defaultImg = document.createElement("img");
@@ -77,7 +74,34 @@ Module.register("MMM-VBot-Logs", {
     getStyles() {
         return ["MMM-VBot-Logs.css"];
     },
+	
+	//Thu Âm
+	createWave() {
+		const container = document.createElement("div");
+		container.className = "vbot-wave";
 
+		for (let i = 0; i < 5; i++) {
+			const bar = document.createElement("span");
+			bar.style.animationDelay = (i * 0.1) + "s";
+			container.appendChild(bar);
+		}
+
+		return container;
+	},
+	
+	//Phát Nhạc
+	createMusicWave() {
+		const container = document.createElement("div");
+		container.className = "vbot-music-wave";
+		for (let i = 0; i < this.config.numberOfBarsMusicWave; i++) {
+			const bar = document.createElement("span");
+			bar.style.animationDelay = (Math.random() * 0.6) + "s";
+
+			container.appendChild(bar);
+		}
+		return container;
+	},
+	
     //Hàm helper cắt chuỗi
     wrapText(text, baseLength = 50, tolerance = 12) {
         const lines = [];
@@ -172,8 +196,8 @@ Module.register("MMM-VBot-Logs", {
 			this.wrapper.style.display = "flex";
 			this.wrapper.style.flexDirection = "column";
 			this.wrapper.style.width = "300px";
-			this.wrapper.style.maxWidth = "300px";
-			this.wrapper.style.minWidth = "300px";
+			//this.wrapper.style.maxWidth = "300px";
+			//this.wrapper.style.minWidth = "300px";
 			this.wrapper.style.position = "relative";
 		}
 
@@ -243,11 +267,18 @@ Module.register("MMM-VBot-Logs", {
 					for (let ik of this.config.imageKeywords) {
 						if (line.toLowerCase().includes(ik.keyword.toLowerCase())) {
 							if (ik.image) {
-								// có ảnh → hiển thị
 								this.imageDiv.innerHTML = "";
-								const img = document.createElement("img");
-								img.src = this.imagePath + ik.image;
-								this.imageDiv.appendChild(img);
+								if (ik.image === "wake_code") {
+									const wave = this.createWave();
+									this.imageDiv.appendChild(wave);
+								}else if (ik.image === "music_wave") {
+									const wave = this.createMusicWave();
+									this.imageDiv.appendChild(wave);
+								}else {
+									const img = document.createElement("img");
+									img.src = this.imagePath + ik.image;
+									this.imageDiv.appendChild(img);
+								}
 							} else {
 								//không có ảnh → ẩn div
 								this.hideIcon();
